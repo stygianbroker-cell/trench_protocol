@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TRENCH_PROTOCOL | Free Memecoin Trading Course</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{--green:#00ff41;--green-dim:#00cc33;--green-glow:rgba(0,255,65,0.15);--amber:#ffb800;--red:#ff3333;--cyan:#00e5ff;--bg:#08080a;--bg-card:#0e0e12;--bg-card-hover:#131318;--border:#1a1a22;--border-green:rgba(0,255,65,0.15);--text:#b8b8c0;--text-bright:#e0e0e8;--text-dim:#555560;--font-mono:'JetBrains Mono',monospace;--font-display:'Space Grotesk',sans-serif}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:var(--font-display);line-height:1.7;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+body::before{content:'';position:fixed;inset:0;background:repeating-linear-gradient(0deg,transparent,transparent 3px,rgba(0,255,65,0.006) 3px,rgba(0,255,65,0.006) 6px);pointer-events:none;z-index:9999}
+::selection{background:var(--green);color:var(--bg)}
+.nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;justify-content:space-between;align-items:center;padding:14px 28px;background:rgba(8,8,10,0.92);backdrop-filter:blur(12px);border-bottom:1px solid var(--border)}
+.nav-logo{font-family:var(--font-mono);font-weight:700;font-size:13px;color:var(--green);letter-spacing:2px;text-decoration:none}
+.nav-logo span{color:var(--text-dim)}
+.nav-right{display:flex;gap:10px;align-items:center}
+.nav-link{font-family:var(--font-mono);font-size:10px;letter-spacing:1px;color:var(--text-dim);text-decoration:none;padding:6px 12px;transition:color .3s}
+.nav-link:hover{color:var(--text-bright)}
+.nav-cta{font-family:var(--font-mono);font-size:10px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--bg);background:var(--green);padding:8px 16px;border-radius:4px;text-decoration:none;transition:all .3s}
+.nav-cta:hover{background:#00dd38}
+.course-hero{padding:140px 24px 80px;text-align:center;position:relative}
+.course-hero::before{content:'';position:absolute;top:0;left:50%;transform:translateX(-50%);width:600px;height:600px;background:radial-gradient(circle,rgba(0,255,65,0.04) 0%,transparent 70%);pointer-events:none}
+.hero-tag{font-family:var(--font-mono);font-size:10px;letter-spacing:3px;color:var(--green);text-transform:uppercase;margin-bottom:20px;display:inline-flex;align-items:center;gap:8px}
+.hero-tag::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--green);animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
+.course-hero h1{font-size:48px;font-weight:700;color:var(--text-bright);line-height:1.15;margin-bottom:20px}
+.course-hero h1 .accent{color:var(--green)}
+.course-hero p{font-size:16px;color:var(--text);max-width:540px;margin:0 auto 36px}
+.progress-wrap{max-width:540px;margin:0 auto 12px;display:flex;align-items:center;gap:12px}
+.progress-bar{flex:1;height:6px;background:var(--border);border-radius:3px;overflow:hidden}
+.progress-fill{height:100%;width:0%;background:var(--green);border-radius:3px;transition:width .5s ease}
+.progress-text{font-family:var(--font-mono);font-size:11px;color:var(--green);min-width:80px;text-align:right}
+.modules{padding:0 24px 100px}
+.module{max-width:860px;margin:0 auto 16px;background:var(--bg-card);border:1px solid var(--border);border-radius:8px;overflow:hidden;transition:border-color .3s}
+.module:hover{border-color:var(--border-green)}
+.module.completed .mod-status{background:var(--green);color:var(--bg)}
+.mod-header{display:flex;align-items:center;gap:16px;padding:20px 24px;cursor:pointer;user-select:none;transition:background .2s}
+.mod-header:hover{background:var(--bg-card-hover)}
+.mod-num{font-family:var(--font-mono);font-size:11px;font-weight:700;color:var(--green);min-width:24px}
+.mod-info{flex:1}
+.mod-info h3{font-size:16px;font-weight:600;color:var(--text-bright);margin-bottom:2px}
+.mod-meta{display:flex;gap:12px}
+.mod-meta span{font-family:var(--font-mono);font-size:10px;color:var(--text-dim)}
+.mod-status{font-family:var(--font-mono);font-size:9px;font-weight:600;letter-spacing:1px;text-transform:uppercase;padding:4px 10px;border-radius:3px;background:var(--border);color:var(--text-dim);transition:all .3s}
+.mod-arrow{color:var(--text-dim);transition:transform .3s;font-size:14px}
+.module.open .mod-arrow{transform:rotate(180deg);color:var(--green)}
+.mod-body{max-height:0;overflow:hidden;transition:max-height .4s ease}
+.module.open .mod-body{max-height:12000px}
+.mod-content{padding:0 24px 28px;border-top:1px solid var(--border)}
+.lesson{padding:28px 0;border-bottom:1px solid rgba(26,26,34,0.5)}
+.lesson:last-child{border-bottom:none}
+.lesson-tag{font-family:var(--font-mono);font-size:9px;letter-spacing:2px;color:var(--green);text-transform:uppercase;margin-bottom:10px;display:inline-block}
+.lesson h4{font-size:17px;font-weight:600;color:var(--text-bright);margin-bottom:12px}
+.lesson p{font-size:14.5px;color:var(--text);margin-bottom:14px;line-height:1.75}
+.lesson p .hl{color:var(--green)}
+.lesson p .warn{color:var(--amber)}
+.lesson p .danger{color:var(--red)}
+.tip-box{background:rgba(0,255,65,0.04);border-left:3px solid var(--green);padding:14px 18px;border-radius:0 6px 6px 0;margin:16px 0}
+.tip-box.warning{background:rgba(255,184,0,0.04);border-left-color:var(--amber)}
+.tip-box.danger{background:rgba(255,51,51,0.04);border-left-color:var(--red)}
+.tip-box .tip-label{font-family:var(--font-mono);font-size:9px;font-weight:700;letter-spacing:2px;text-transform:uppercase;margin-bottom:6px;color:var(--green)}
+.tip-box.warning .tip-label{color:var(--amber)}
+.tip-box.danger .tip-label{color:var(--red)}
+.tip-box p{font-size:13px;margin:0;color:var(--text)}
+.checklist{margin:16px 0}
+.check-item{display:flex;align-items:flex-start;gap:10px;padding:8px 0;font-size:14px;color:var(--text)}
+.check-box{width:20px;height:20px;min-width:20px;border:2px solid var(--border);border-radius:4px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .2s;margin-top:1px}
+.check-box:hover{border-color:var(--green)}
+.check-box.checked{background:var(--green);border-color:var(--green)}
+.check-box.checked::after{content:'\2713';color:var(--bg);font-size:12px;font-weight:700}
+.quiz{background:var(--bg);border:1px solid var(--border);border-radius:8px;padding:22px;margin:20px 0}
+.quiz-q{font-size:14px;font-weight:600;color:var(--text-bright);margin-bottom:14px}
+.quiz-opts{display:flex;flex-direction:column;gap:8px}
+.quiz-opt{padding:12px 16px;border:1px solid var(--border);border-radius:6px;font-size:13px;color:var(--text);cursor:pointer;transition:all .2s;background:transparent;text-align:left;font-family:var(--font-display)}
+.quiz-opt:hover{border-color:var(--green);background:rgba(0,255,65,0.03)}
+.quiz-opt.correct{border-color:var(--green);background:rgba(0,255,65,0.08);color:var(--green)}
+.quiz-opt.wrong{border-color:var(--red);background:rgba(255,51,51,0.06);color:var(--red)}
+.quiz-opt.disabled{pointer-events:none;opacity:.5}
+.quiz-result{margin-top:12px;font-family:var(--font-mono);font-size:12px;padding:10px 14px;border-radius:6px;display:none}
+.quiz-result.show{display:block}
+.quiz-result.pass{background:rgba(0,255,65,0.06);color:var(--green)}
+.quiz-result.fail{background:rgba(255,51,51,0.06);color:var(--red)}
+.complete-btn{display:inline-flex;align-items:center;gap:8px;font-family:var(--font-mono);font-size:11px;font-weight:600;letter-spacing:1px;text-transform:uppercase;padding:12px 24px;margin-top:16px;background:transparent;border:1px solid var(--green);color:var(--green);border-radius:6px;cursor:pointer;transition:all .3s}
+.complete-btn:hover{background:var(--green);color:var(--bg)}
+.complete-btn.done{background:rgba(0,255,65,0.1);border-style:dashed;pointer-events:none}
+.mid-cta{text-align:center;padding:60px 24px;border-top:1px solid var(--border);border-bottom:1px solid var(--border);margin:0 auto;max-width:860px}
+.mid-cta h3{font-size:24px;font-weight:700;color:var(--text-bright);margin-bottom:12px}
+.mid-cta p{font-size:14px;color:var(--text);margin-bottom:24px}
+.cta-btn{display:inline-block;padding:14px 32px;background:var(--green);color:var(--bg);font-family:var(--font-mono);font-size:12px;font-weight:700;letter-spacing:2px;text-transform:uppercase;text-decoration:none;border-radius:6px;transition:all .3s}
+.cta-btn:hover{background:#00dd38;transform:translateY(-2px)}
+.cta-sub{display:block;margin-top:14px;font-family:var(--font-mono);font-size:10px;color:var(--text-dim);letter-spacing:1px}
+.cta-sub a{color:var(--green);text-decoration:none}
+footer.footer{text-align:center;padding:40px 24px;border-top:1px solid var(--border)}
+footer.footer p{font-family:var(--font-mono);font-size:11px;color:var(--text-dim);letter-spacing:1px}
+footer .footer-links{display:flex;justify-content:center;gap:24px;margin-top:12px;flex-wrap:wrap}
+footer .footer-links a{font-family:var(--font-mono);font-size:11px;color:var(--text-dim);text-decoration:none;letter-spacing:0.5px;transition:color 0.3s}
+footer .footer-links a:hover{color:var(--green)}
+@media(max-width:600px){
+html,body{overflow-x:hidden;max-width:100vw}
+.nav{padding:10px 14px}.nav-logo{font-size:11px}.nav-link{display:none}.nav-cta{padding:6px 10px;font-size:8px}
+.course-hero{padding:100px 16px 50px}.course-hero h1{font-size:28px}.course-hero p{font-size:14px}
+.progress-wrap{flex-direction:column;gap:6px}.progress-text{text-align:center;min-width:auto}
+.modules{padding:0 16px 60px}.module{margin-bottom:10px}
+.mod-header{padding:16px;gap:12px}.mod-info h3{font-size:14px}.mod-meta span{font-size:9px}
+.mod-content{padding:0 16px 24px}.lesson h4{font-size:15px}.lesson p{font-size:13.5px}
+.tip-box{padding:12px 14px}.tip-box p{font-size:12.5px}
+.quiz{padding:16px}.quiz-q{font-size:13px}.quiz-opt{padding:10px 14px;font-size:12px}
+.check-item{font-size:13px}
+.mid-cta{padding:40px 16px}.mid-cta h3{font-size:20px}.cta-btn{width:100%;text-align:center}
+.footer{padding:20px 14px}.footer p{font-size:10px}.footer-links{flex-direction:column;gap:8px;align-items:center}.footer-links a{font-size:10px}
+}
+.sh{background:var(--green)!important;color:var(--bg)!important;animation:pb 2s infinite}@keyframes pb{0%,100%{box-shadow:0 0 0 0 rgba(0,255,65,0.4)}50%{box-shadow:0 0 0 8px rgba(0,255,65,0)}}.module[data-module="1"]:not(.completed){border-color:rgba(0,255,65,0.3)}
+</style>
+</head>
+<body>
+<nav class="nav"><div class="nav-logo">TRENCH<span>_PROTOCOL</span></div><div class="nav-right"><a href="/" class="nav-link">Home</a><a href="https://axiom.trade/@stygian" target="_blank" rel="noopener" class="nav-cta">Trade on Axiom &#8594;</a></div></nav>
+
+<section class="course-hero">
+<div class="hero-tag">Free Course</div>
+<h1>The Complete<br><span class="accent">Memecoin</span> Trading Course</h1>
+<p>Go from zero to your first Solana meme coin trade in under 40 minutes. 8 modules. Interactive quizzes. Completely free. No signup required.</p>
+<div class="progress-wrap">
+<div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+<div class="progress-text" id="progressText">0 / 8 completed</div>
+</div>
+</section>
+
+<section class="modules">
+
+<div class="module" data-module="1">
+<div class="mod-header" onclick="toggleModule(1)">
+<div class="mod-num">01</div>
+<div class="mod-info"><h3>Crypto & Wallet Basics</h3><div class="mod-meta"><span>4 lessons</span><span>~4 min</span><span>Beginner</span></div></div>
+<div class="mod-status sh">START HERE</div><div class="mod-arrow">&#9660;</div>
+</div>
+<div class="mod-body"><div class="mod-content">
+<div class="lesson"><div class="lesson-tag">Lesson 1.1</div><h4>What is a blockchain?</h4>
+<p>Think of a blockchain as a public spreadsheet that everyone in the world can see but nobody can cheat. Every transaction ever made is recorded permanently. No bank, no middleman. Just math and code.</p>
+<p>There are many blockchains (Bitcoin, Ethereum, Solana). For meme coin trading, we use <span class="hl">Solana</span> because it's fast (under 1 second transactions) and cheap (fees are fractions of a cent).</p></div>
+
+<div class="lesson"><div class="lesson-tag">Lesson 1.2</div><h4>What is SOL and why do you need it?</h4>
+<p>SOL is Solana's native currency, the fuel that powers everything. Every trade costs a tiny bit of SOL as a fee. <span class="hl">Always keep at least 0.05 SOL</span> for fees, even after buying tokens.</p>
+<div class="tip-box"><div class="tip-label">How to get SOL</div><p>Buy on a centralized exchange (Coinbase, Binance) and send to your wallet, or buy directly through Axiom's built-in on-ramp with a card.</p></div></div>
+
+<div class="lesson"><div class="lesson-tag">Lesson 1.3</div><h4>Wallets: Your keys, your coins</h4>
+<p>A crypto wallet is where your tokens live. Unlike a bank, <span class="hl">you control it completely</span>. It has a <span class="hl">public address</span> (safe to share, like an email) and a <span class="hl">seed phrase</span> (12-24 words that give full access).</p>
+<div class="tip-box danger"><div class="tip-label">Critical rule</div><p>NEVER share your seed phrase with anyone. Not support staff, not admins, not friends. Anyone who asks is trying to steal your funds. Write it on paper and store it offline.</p></div></div>
+
+<div class="lesson"><div class="lesson-tag">Lesson 1.4</div><h4>Setting up Phantom wallet</h4>
+<p>Install Phantom from <span class="hl">phantom.app</span> (always verify the URL). Create a wallet, write down your seed phrase on paper, done. Connect it to platforms like Axiom. They can see your balance but can never move funds without your approval.</p>
+<div class="quiz" data-quiz="1"><div class="quiz-q">Someone in Discord DMs says they're from "Phantom Support" and need your seed phrase to fix a bug. What do you do?</div>
+<div class="quiz-opts">
+<button class="quiz-opt" data-correct="false" onclick="checkQuiz(this)">Give them the seed phrase since they're official support</button>
+<button class="quiz-opt" data-correct="true" onclick="checkQuiz(this)">Block and report immediately. It's a scam.</button>
+<button class="quiz-opt" data-correct="false" onclick="checkQuiz(this)">Ask them to verify their identity first</button>
+</div><div class="quiz-result"></div></div></div>
+<button class="complete-btn" onclick="completeModule(1)">Mark Module Complete</button>
+</div></div></div>
+
+<div class="module" data-module="2">
+<div class="mod-header" onclick="toggleModule(2)">
+<div class="mod-num">02</div>
+<div class="mod-info"><h3>How Meme Coins Actually Work</h3><div class="mod-meta"><span>4 lessons</span><span>~5 min</span><span>Beginner</span></div></div>
+<div class="mod-status">Start</div><div class="mod-arrow">&#9660;</div>
+</div>
+<div class="mod-body"><div class="mod-content">
+<div class="lesson"><div class="lesson-tag">Lesson 2.1</div><h4>What is a meme coin?</h4>
+<p>A meme coin is a token created around internet culture, jokes, or viral moments. Unlike Bitcoin, meme coins usually have <span class="hl">no underlying technology</span>. Value comes purely from community hype and speculation.</p>
+<p>Anyone can create one in under 60 seconds on Pump.fun. Thousands launch daily. Most go to zero. A tiny handful explode.</p></div>
+
+<div class="lesson"><div class="lesson-tag">Lesson 2.2</div><h4>The lifecycle of a meme coin</h4>
+<p><span class="hl">Stage 1: Creation</span> — Launched on Pump.fun with a name and image. Starts under $10K market cap.</p>
+<p><span class="hl">Stage 2: Bonding curve</span> — Price rises automatically as people buy. At ~$69K market cap, it "graduates" to Raydium.</p>
+<p><span class="hl">Stage 3: Raydium migration</span> — Real trading begins with a liquidity pool. Biggest price movements happen here.</p>
+<p><span class="hl">Stage 4: Moon or death</span> — Either picks up massive momentum, or interest dies and it bleeds to zero.</p></div>
+
+<div class="lesson"><div class="lesson-tag">Lesson 2.3</div><h4>Market cap explained simply</h4>
+<p>Market cap = price x total supply. It's the "size" of a token. How to read it:</p>
+<p><span class="danger">Under $10K</span> — Extremely early, extremely risky. Most die instantly.</p>
+<p><span class="warn">$10K-$100K</span> — Still early. Signs of life if community is active.</p>
+<p><span class="hl">$100K-$1M</span> — Real traction. Still room for big gains.</p>
+<p><span class="hl">$1M-$10M</span> — Established. Could 5-10x but easiest gains are behind it.</p></div>
+
+<div class="lesson"><div class="lesson-tag">Lesson 2.4</div><h4>PVP: The reality</h4>
+<p>Meme coin trading is <span class="danger">player vs player</span>. Every dollar you make is a dollar someone else lost. Roughly <span class="danger">90-95% go to zero</span>. The 100x screenshots on Twitter are survivorship bias.</p>
+<div class="tip-box warning"><div class="tip-label">Reality check</div><p>Only trade money you can afford to lose completely. Not rent. Not savings. That's your tuition for learning.</p></div></div>
+<button class="complete-btn" onclick="completeModule(2)">Mark Module Complete</button>
+</div></div></div>
+
+<div class="module" data-module="3">
+<div class="mod-header" onclick="toggleModule(3)">
+<div class="mod-num">03</div>
+<div class="mod-info"><h3>Spotting & Avoiding Rugs and Scams</h3><div class="mod-meta"><span>5 lessons</span><span>~6 min</span><span>Essential</span></div></div>
+<div class="mod-status">Start</div><div class="mod-arrow">&#9660;</div>
+</div>
+<div class="mod-body"><div class="mod-content">
+<div class="lesson"><div class="lesson-tag">Lesson 3.1</div><h4>What is a rug pull?</h4>
+<p>A rug pull is when a creator drains all liquidity, making it impossible to sell. Your token goes from worth something to zero instantly.</p>
+<p>Types: <span class="danger">hard rugs</span> (liquidity pulled instantly), <span class="warn">soft rugs</span> (developer slowly dumps holdings), and <span class="danger">honeypots</span> (you can buy but literally cannot sell due to contract code).</p></div>
+
+<div class="lesson"><div class="lesson-tag">Lesson 3.2</div><h4>Red flags before buying</h4>
+<p>Before buying any token, check these five things. If any of them look bad, skip the token.</p>
+<p><span class="hl">1. Can the creator take the money and run?</span> Look for "liquidity locked" or "liquidity burned." If it is not locked, the creator can pull all the money out and your tokens become worthless instantly.</p>
+<p><span class="hl">2. Can the creator print more tokens?</span> Look for "mint authority revoked." If it is still active, the creator can make millions of new tokens out of thin air and crash the price by selling them.</p>
+<p><span class="hl">3. Does one person own too much?</span> Check the top holders. If a single wallet owns more than 5-10% of all tokens, they can crash the price whenever they want by dumping.</p>
+<p><span class="hl">4. Is the community real?</span> Check the Twitter/X account. Was it created today? Are the followers real people or bots? Real projects have real conversations, not just rocket emojis.</p>
+<p><span class="hl">5. Is the contract safe?</span> Copy the token address into RugCheck.xyz or Birdeye.so. These tools scan for hidden traps in the code that could steal your money.</p></div>
+
+<div class="lesson"><div class="lesson-tag">Lesson 3.3</div><h4>Bundled launches and insider wallets</h4>
+<p>A "bundle" is when the developer secretly buys a huge portion of supply using multiple wallets at launch. Looks like organic buying but it's one person who will dump on everyone.</p>
+<p>Spot it: check <span class="hl">first 20-30 buyers</span>. Multiple wallets buying in the same second/block = bundle. Axiom's Pulse shows you this.</p></div>
+
+<div class="lesson"><div class="lesson-tag">Lesson 3.4</div><h4>Common scam tactics</h4>
+<p><span class="danger">Fake partnerships</span> — "Just partnered with [big name]!" Always verify directly.</p>
+<p><span class="danger">Airdrop phishing</span> — Random tokens in your wallet with links. Never interact with unknown tokens.</p>
+<p><span class="danger">Impersonation</span> — Fake accounts of real traders posting "alpha calls."</p>
+<p><span class="danger">Urgency manipulation</span> — "Buy NOW!" so you skip research.</p>
+<p><span class="danger">Paid shilling</span> — Influencers promoting tokens they plan to dump.</p></div>
+
+<div class="lesson"><div class="lesson-tag">Lesson 3.5</div><h4>The 60-second safety check</h4>
+<p>Run this before EVERY trade:</p>
+<div class="checklist">
+<div class="check-item"><div class="check-box" onclick="toggleCheck(this)"></div><span>Liquidity locked/burned?</span></div>
+<div class="check-item"><div class="check-box" onclick="toggleCheck(this)"></div><span>Mint authority revoked?</span></div>
+<div class="check-item"><div class="check-box" onclick="toggleCheck(this)"></div><span>Top holders clean (no single wallet over 5%)?</span></div>
+<div class="check-item"><div class="check-box" onclick="toggleCheck(this)"></div><span>Chart looks organic?</span></div>
+<div class="check-item"><div class="check-box" onclick="toggleCheck(this)"></div><span>Checked for bundled wallets?</span></div>
+<div class="check-item"><div class="check-box" onclick="toggleCheck(this)"></div><span>Comfortable losing this entire amount?</span></div>
+</div>
+<div class="tip-box danger"><div class="tip-label">Golden rule</div><p>If even ONE check fails, skip the trade. There will always be another token. There won't always be another wallet balance.</p></div>
+<div class="quiz" data-quiz="3"><div class="quiz-q">Great chart, Twitter buzzing, but one wallet holds 25% of supply and liquidity isn't locked. What's the move?</div>
+<div class="quiz-opts">
+<button class="quiz-opt" data-correct="false" onclick="checkQuiz(this)">Buy a small bag, the hype is strong</button>
+<button class="quiz-opt" data-correct="false" onclick="checkQuiz(this)">Wait and see if it goes higher first</button>
+<button class="quiz-opt" data-correct="true" onclick="checkQuiz(this)">Skip it. Failed safety check. Move on.</button>
+</div><div class="quiz-result"></div></div></div>
+<button class="complete-btn" onclick="completeModule(3)">Mark Module Complete</button>
+</div></div></div>
+
+<div class="module" data-module="4">
+<div class="mod-header" onclick="toggleModule(4)">
+<div class="mod-num">04</div>
+<div class="mod-info"><h3>Setting Up Axiom (Step by Step)</h3><div class="mod-meta"><span>4 lessons</span><span>~3 min</span><span>Practical</span></div></div>
+<div class="mod-status">Start</div><div class="mod-arrow">&#9660;</div>
+</div>
+<div class="mod-body"><div class="mod-content">
+<div class="lesson"><div class="lesson-tag">Lesson 4.1</div><h4>Why Axiom?</h4>
+<p>Axiom is the fastest and most complete Solana trading tool. Y Combinator backed, $10B+ volume. What makes it different: <span class="hl">sub-400ms execution</span>, <span class="hl">built-in MEV protection</span>, <span class="hl">whale tracking</span>, and everything in one screen.</p></div>
+
+<div class="lesson"><div class="lesson-tag">Lesson 4.2</div><h4>Create account and fund wallet</h4>
+<p>Go to <a href="https://axiom.trade/@stygian" target="_blank" rel="noopener" style="color:var(--green);text-decoration:underline">axiom.trade/@stygian</a> to save 10% on all trading fees. Sign up with email or connect your wallet. Connect Phantom or create an embedded wallet. Fund it by sending SOL from an exchange or using the built-in card on-ramp.</p>
+<div class="tip-box"><div class="tip-label">Start small</div><p>$50-100 is plenty to learn with. The goal right now is education, not profit. You can add more once you have the basics down.</p></div></div>
+
+<div class="lesson"><div class="lesson-tag">Lesson 4.3</div><h4>Explore the dashboard</h4>
+<p>Once you're logged in, take a few minutes to click around and get familiar with the layout. Don't worry about understanding everything yet, we cover each section in later modules.</p>
+<div class="tip-box"><div class="tip-label">Good to know</div><p>Axiom has built-in MEV protection, which means bots cannot front-run your trades. This works automatically in the background. You don't need to enable anything.</p></div></div>
+
+<div class="lesson"><div class="lesson-tag">Lesson 4.4</div><h4>The Axiom dashboard</h4>
+<p><span class="hl">Pulse</span> — New token launches in real time. Your scouting tool.</p>
+<p><span class="hl">Trading view</span> — Full chart, holders, order book. Where you execute trades.</p>
+<p><span class="hl">Wallet tracker</span> — Follow whale wallets and see their trades live.</p>
+<p><span class="hl">Portfolio</span> — Your holdings, PnL, and transaction history.</p></div>
+<button class="complete-btn" onclick="completeModule(4)">Mark Module Complete</button>
+</div></div></div>
+
+<div class="mid-cta">
+<h3>Account Set Up? Let's Keep Going.</h3>
+<p>If you haven't created your Axiom account yet, do it now before moving to the trading modules.</p>
+<a href="https://axiom.trade/@stygian" target="_blank" rel="noopener" class="cta-btn">Trade on Axiom &#8594; Save 10% on Fees</a>
+<span class="cta-sub">Free | No KYC | Takes 2 minutes</span>
+</div>
+
+
+<div class="module" data-module="5">
+<div class="mod-header" onclick="toggleModule(5)">
+<div class="mod-num">05</div>
+<div class="mod-info"><h3>Entry & Exit Strategies</h3><div class="mod-meta"><span>4 lessons</span><span>~5 min</span><span>Intermediate</span></div></div>
+<div class="mod-status">Start</div><div class="mod-arrow">&#9660;</div>
+</div>
+<div class="mod-body"><div class="mod-content">
+<div class="lesson"><div class="lesson-tag">Lesson 5.1</div><h4>When to enter a trade</h4>
+<p>Biggest beginner mistake: buying based on FOMO. Strong entry signals: token just migrated with organic buying, <span class="hl">developer wallet is clean</span>, narrative connects to current trends, volume building steadily.</p>
+<p>Weak signals: heard about it on Twitter after a 10x, Discord screaming "BUY NOW", or feeling like you're missing out.</p></div>
+
+<div class="lesson"><div class="lesson-tag">Lesson 5.2</div><h4>Position sizing</h4>
+<p>Never risk more than <span class="hl">5-10% of your total balance</span> on a single trade. $500 total = $25-50 per trade max.</p>
+<div class="tip-box"><div class="tip-label">The math</div><p>5% per trade = 20 trades before running out. If 3-4 hit a 5-10x, you're profitable even if the other 16 go to zero.</p></div></div>
+
+<div class="lesson"><div class="lesson-tag">Lesson 5.3</div><h4>Taking profits (the hardest skill)</h4>
+<p>Use a <span class="hl">tiered exit strategy</span>:</p>
+<p><span class="hl">At 2x:</span> Sell 25-30%. You've recovered your investment. Rest is house money.</p>
+<p><span class="hl">At 5x:</span> Sell another 25-30%. Sitting on real profit now.</p>
+<p><span class="hl">At 10x+:</span> Sell another chunk. Let a small "moonbag" ride.</p></div>
+
+<div class="lesson"><div class="lesson-tag">Lesson 5.4</div><h4>Stop losses and cutting losers</h4>
+<p>Rule: <span class="danger">if it drops 30-50% from entry, sell and move on</span>. Don't "diamond hands" a meme coin.</p>
+<div class="tip-box warning"><div class="tip-label">Emotional trap</div><p>"What if I sell and it recovers?" Statistically, a meme coin down 50% is far more likely to go to zero than recover. Protect your capital.</p></div></div>
+<button class="complete-btn" onclick="completeModule(5)">Mark Module Complete</button>
+</div></div></div>
+
+<div class="module" data-module="6">
+<div class="mod-header" onclick="toggleModule(6)">
+<div class="mod-num">06</div>
+<div class="mod-info"><h3>Reading Charts & Volume</h3><div class="mod-meta"><span>4 lessons</span><span>~5 min</span><span>Intermediate</span></div></div>
+<div class="mod-status">Start</div><div class="mod-arrow">&#9660;</div>
+</div>
+<div class="mod-body"><div class="mod-content">
+<div class="lesson"><div class="lesson-tag">Lesson 6.1</div><h4>Candlestick basics</h4>
+<p>Each candle = one time period. <span class="hl">Green</span> = price went up. <span class="danger">Red</span> = price went down. The body shows open/close, wicks show high/low.</p>
+<p>Big green candles + volume = strong buying. Big red + volume = strong selling. Small candles + low volume = nobody cares.</p></div>
+
+<div class="lesson"><div class="lesson-tag">Lesson 6.2</div><h4>Volume: The only indicator that matters</h4>
+<p><span class="hl">Rising price + rising volume</span> = Real momentum. Money flowing in. Good.</p>
+<p><span class="warn">Rising price + declining volume</span> = Weak move. Running out of steam. Be careful.</p>
+<p><span class="danger">Falling price + high volume</span> = Dump in progress. Stay away.</p></div>
+
+<div class="lesson"><div class="lesson-tag">Lesson 6.3</div><h4>Support and resistance</h4>
+<p><span class="hl">Support</span> = price floor where buyers step in. <span class="hl">Resistance</span> = ceiling where sellers appear. When a token breaks resistance on volume, it often runs. When it breaks support, it often dumps.</p></div>
+
+<div class="lesson"><div class="lesson-tag">Lesson 6.4</div><h4>Patterns that matter</h4>
+<p><span class="hl">The staircase</span> — Pump, consolidate, pump again. Healthy growth. Enter during sideways parts.</p>
+<p><span class="danger">Spike and dump</span> — Straight up, crashes back. Don't chase it.</p>
+<p><span class="warn">Slow bleed</span> — Lower highs, lower lows. Token is dying. Cut losses.</p>
+<div class="quiz" data-quiz="6"><div class="quiz-q">Price climbing but volume decreasing for the last hour. What does this mean?</div>
+<div class="quiz-opts">
+<button class="quiz-opt" data-correct="false" onclick="checkQuiz(this)">Everything fine, price is up</button>
+<button class="quiz-opt" data-correct="true" onclick="checkQuiz(this)">Move is weakening. Fewer buyers at higher prices. Be cautious.</button>
+<button class="quiz-opt" data-correct="false" onclick="checkQuiz(this)">Volume doesn't matter</button>
+</div><div class="quiz-result"></div></div></div>
+<button class="complete-btn" onclick="completeModule(6)">Mark Module Complete</button>
+</div></div></div>
+
+<div class="module" data-module="7">
+<div class="mod-header" onclick="toggleModule(7)">
+<div class="mod-num">07</div>
+<div class="mod-info"><h3>Whale Tracking & Copy Trading</h3><div class="mod-meta"><span>3 lessons</span><span>~3 min</span><span>Advanced</span></div></div>
+<div class="mod-status">Start</div><div class="mod-arrow">&#9660;</div>
+</div>
+<div class="mod-body"><div class="mod-content">
+<div class="lesson"><div class="lesson-tag">Lesson 7.1</div><h4>What is whale tracking?</h4>
+<p>Whales are traders with large wallets who consistently profit. On Solana, every transaction is public. You can <span class="hl">see exactly what the best traders are buying and selling in real time</span>. Instead of guessing, watch proven winners.</p></div>
+
+<div class="lesson"><div class="lesson-tag">Lesson 7.2</div><h4>Finding whales on Axiom</h4>
+<p>Use Axiom's <span class="hl">Wallet Tracker</span>. Look for wallets with: <span class="hl">60%+ win rate</span>, <span class="hl">consistent profits over 7-30 days</span>, and reasonable position sizes. Add them to your watchlist for real-time alerts.</p>
+<div class="tip-box warning"><div class="tip-label">Important</div><p>Never blindly copy a whale. Some trade hundreds of tokens daily. Use whale activity as a starting point, then run your own safety checks before buying.</p></div></div>
+
+<div class="lesson"><div class="lesson-tag">Lesson 7.3</div><h4>Smart vs blind copy trading</h4>
+<p><span class="danger">Blind</span> = whale buys, you instantly buy. Bad. Price already moved and you have different risk tolerance.</p>
+<p><span class="hl">Smart</span> = whale buys, you note the token, run your safety check, evaluate the entry, then decide. Whale pointed you there. You still make the call.</p>
+<p>Best signal: <span class="hl">convergence</span>. Multiple unrelated whales buying the same token around the same time. Much stronger than one wallet.</p></div>
+<button class="complete-btn" onclick="completeModule(7)">Mark Module Complete</button>
+</div></div></div>
+
+<div class="module" data-module="8">
+<div class="mod-header" onclick="toggleModule(8)">
+<div class="mod-num">08</div>
+<div class="mod-info"><h3>Risk Management & Bankroll</h3><div class="mod-meta"><span>4 lessons</span><span>~5 min</span><span>Essential</span></div></div>
+<div class="mod-status">Start</div><div class="mod-arrow">&#9660;</div>
+</div>
+<div class="mod-body"><div class="mod-content">
+<div class="lesson"><div class="lesson-tag">Lesson 8.1</div><h4>The bankroll mindset</h4>
+<p>Think of your capital like a poker bankroll. Decide how much you can <span class="hl">afford to lose completely</span>. If that's $200, that's your bankroll. Now manage it like a pro.</p></div>
+
+<div class="lesson"><div class="lesson-tag">Lesson 8.2</div><h4>The survival rules</h4>
+<p><span class="hl">1. Max 5-10% per trade.</span> No exceptions, no matter how sure you are.</p>
+<p><span class="hl">2. Take profits on the way up.</span> Selling too early is always better than selling too late.</p>
+<p><span class="hl">3. Cut losses fast.</span> If it drops 30-50% from your entry, sell and move on. No hoping.</p>
+<p><span class="hl">4. Never revenge trade.</span> Lost money? Walk away for an hour. Trading angry makes it worse.</p>
+<p><span class="hl">5. Track every trade.</span> Write down what you bought, why, and what happened.</p></div>
+
+<div class="lesson"><div class="lesson-tag">Lesson 8.3</div><h4>Emotional management</h4>
+<p><span class="danger">Fear</span> makes you sell winners too early and avoid good trades. <span class="danger">Greed</span> makes you hold losers and buy at tops.</p>
+<p>Fix: <span class="hl">have a plan before every trade</span>. Entry, targets, stop loss. Write it down. Execute the plan. Emotions lose power when you stick to the plan.</p></div>
+
+<div class="lesson"><div class="lesson-tag">Lesson 8.4</div><h4>Your daily trading routine</h4>
+<p><span class="hl">Morning (5 min):</span> Check portfolio, scan whale activity, review Axiom Pulse.</p>
+<p><span class="hl">Before each trade (60 sec):</span> Safety checklist from Module 3.</p>
+<p><span class="hl">After each trade:</span> Log it. Token, reason, result, lesson.</p>
+<p><span class="hl">End of week (10 min):</span> Review all trades. Win rate. Patterns in mistakes.</p>
+<div class="tip-box"><div class="tip-label">Final thought</div><p>Survivors aren't the ones with the best alpha. They're the ones with the most discipline. Stay disciplined, manage risk, keep learning.</p></div>
+<div class="quiz" data-quiz="8"><div class="quiz-q">Lost 3 trades in a row. Frustrated. New token pumping hard. You want to go all in to make it back. What should you do?</div>
+<div class="quiz-opts">
+<button class="quiz-opt" data-correct="false" onclick="checkQuiz(this)">Go all in to recover fast</button>
+<button class="quiz-opt" data-correct="true" onclick="checkQuiz(this)">Step away. You're about to revenge trade.</button>
+<button class="quiz-opt" data-correct="false" onclick="checkQuiz(this)">Put in 50% as a compromise</button>
+</div><div class="quiz-result"></div></div></div>
+<button class="complete-btn" onclick="completeModule(8)">Mark Module Complete</button>
+</div></div></div>
+
+</section>
+
+<div class="mid-cta" style="border-bottom:none">
+<h3>Course Complete. Time to Trade.</h3>
+<p>You've got the knowledge. Start small, stay disciplined, and join the community.</p>
+<a href="https://axiom.trade/@stygian" target="_blank" rel="noopener" class="cta-btn">Trade on Axiom &#8594; Save 10% on Fees</a>
+<span class="cta-sub">Free to use &#183; No KYC &#183; Non-custodial &#183; Your keys, your coins</span>
+<a href="https://discord.gg/RzD4Jqf83z" target="_blank" rel="noopener" class="cta-btn" style="background:transparent;border:1px solid var(--green);color:var(--green);margin-top:8px;padding:12px 32px;font-size:11px">Join the Free Discord &#8594;</a>
+</div>
+
+<footer class="footer"><p style="margin-bottom:10px;">TRENCH_PROTOCOL &#169; 2025 &#8212; Built for the trenches.</p><div class="footer-links"><a href="/">Home</a><a href="https://x.com/stygianbroker" target="_blank" rel="noopener">&#120143; @stygianbroker</a><a href="https://discord.gg/RzD4Jqf83z" target="_blank" rel="noopener">Discord</a><a href="https://axiom.trade/@stygian" target="_blank" rel="noopener">Axiom</a></div></footer>
+
+<script>
+const saved=localStorage.getItem('tp_progress');const state={completed:new Set(saved?JSON.parse(saved):[]),open:null};
+state.completed.forEach(n=>{const m=document.querySelector('[data-module="'+n+'"]');if(m){m.classList.add('completed');m.querySelector('.mod-status').textContent='Done';const b=m.querySelector('.complete-btn');if(b){b.textContent='Completed \u2713';b.classList.add('done')}}});updateProgress();
+function toggleModule(n){const m=document.querySelector('[data-module="'+n+'"]');if(state.open===n){m.classList.remove('open');state.open=null}else{if(state.open)document.querySelector('[data-module="'+state.open+'"]').classList.remove('open');m.classList.add('open');state.open=n;setTimeout(()=>m.scrollIntoView({behavior:'smooth',block:'nearest'}),100)}}
+function completeModule(n){var m=document.querySelector('[data-module="'+n+'"]');var quizzes=m.querySelectorAll('.quiz');var allPassed=true;for(var q=0;q<quizzes.length;q++){var res=quizzes[q].querySelector('.quiz-result');if(!res||!res.classList.contains('show')||!res.classList.contains('pass')){allPassed=false;break}}if(quizzes.length>0&&!allPassed){var warn=m.querySelector('.quiz-warn');if(!warn){warn=document.createElement('div');warn.className='quiz-warn';warn.style.cssText='font-family:var(--font-mono);font-size:11px;color:var(--amber);margin-top:12px;padding:10px 14px;background:rgba(255,184,0,0.06);border-radius:6px;border:1px solid rgba(255,184,0,0.15)';warn.textContent='Answer all quizzes correctly to complete this module.';m.querySelector('.complete-btn').after(warn)}return}state.completed.add(n);localStorage.setItem('tp_progress',JSON.stringify([...state.completed]));m.classList.add('completed');m.querySelector('.mod-status').textContent='Done';var b=m.querySelector('.complete-btn');b.textContent='Completed \u2713';b.classList.add('done');var w=m.querySelector('.quiz-warn');if(w)w.remove();updateProgress();setTimeout(function(){var rect=m.getBoundingClientRect();var targetY=rect.top+window.scrollY;m.classList.remove('open');state.open=null;window.scrollTo({top:targetY-100,behavior:'instant'})},600)}
+function updateProgress(){const c=state.completed.size;document.getElementById('progressFill').style.width=(c/8*100)+'%';document.getElementById('progressText').textContent=c+' / 8 completed'}
+function checkQuiz(btn){const q=btn.closest('.quiz'),opts=q.querySelectorAll('.quiz-opt'),res=q.querySelector('.quiz-result'),ok=btn.dataset.correct==='true';opts.forEach(o=>{o.classList.add('disabled');if(o.dataset.correct==='true')o.classList.add('correct')});if(!ok){btn.classList.add('wrong');res.textContent='Not quite. Correct answer highlighted in green.';res.className='quiz-result show fail'}else{res.textContent='Correct!';res.className='quiz-result show pass';var w=btn.closest('.mod-content').querySelector('.quiz-warn');if(w)w.remove()}}
+function toggleCheck(b){b.classList.toggle('checked')}
+
+</script>
+</body>
+</html>

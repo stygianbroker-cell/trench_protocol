@@ -466,7 +466,8 @@ var w=m.querySelector('.quiz-warn');if(w)w.remove();
 updateProgress();lockModules();
 setTimeout(function(){m.classList.remove('open');state.open=null;
 if(n!==8){var rect=m.getBoundingClientRect();var targetY=rect.top+window.scrollY;
-window.scrollTo({top:targetY-100,behavior:'instant'})}},600)}
+window.scrollTo({top:targetY-100,behavior:'instant'})}
+else{setTimeout(function(){var banner=document.getElementById('completionBanner');if(banner){var y=banner.getBoundingClientRect().top+window.pageYOffset-80;window.scrollTo({top:y,behavior:'smooth'})}},400)}},600)}
 
 function updateProgress(){var c=state.completed.size;
 document.getElementById('progressFill').style.width=(c/8*100)+'%';
@@ -515,9 +516,7 @@ if(alive&&frame<180)requestAnimationFrame(draw);
 else{canvas.remove();}
 }
 draw();
-setTimeout(function(){
-document.getElementById('completionBanner').scrollIntoView({behavior:'smooth',block:'start'});
-},900);
+
 }
 
 </script>

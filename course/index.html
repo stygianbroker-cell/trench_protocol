@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>TRENCH_PROTOCOL | Free Memecoin Trading Course</title>
+<title>TRENCH_PROTOCOL | Free Meme Coin Trading Course</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
@@ -113,15 +113,24 @@ html,body{overflow-x:hidden;max-width:100vw}
 .footer{padding:20px 14px}.footer p{font-size:10px}.footer-links{flex-direction:column;gap:8px;align-items:center}.footer-links a{font-size:10px}
 }
 .sh{background:var(--green)!important;color:var(--bg)!important;animation:pb 2s infinite}@keyframes pb{0%,100%{box-shadow:0 0 0 0 rgba(0,255,65,0.4)}50%{box-shadow:0 0 0 8px rgba(0,255,65,0)}}.module[data-module="1"]:not(.completed){border-color:rgba(0,255,65,0.3)}
+.module.locked{opacity:0.4;pointer-events:none}.module.locked .mod-header{cursor:not-allowed}.module.locked .mod-status{background:var(--border);color:var(--text-dim)}
+
+.progress-fill.complete{background:var(--green);box-shadow:0 0 12px rgba(0,255,65,0.4)}
+.completion-banner{display:none;max-width:860px;margin:0 auto 24px;padding:48px 28px;text-align:center;background:rgba(0,255,65,0.04);border:1px solid rgba(0,255,65,0.2);border-radius:8px}
+.completion-banner.show{display:block;animation:fadeUp 0.6s ease}
+.completion-banner h3{font-size:24px;font-weight:700;color:var(--green);margin-bottom:8px}
+.completion-banner p{font-size:14px;color:var(--text);margin:0}
+.confetti-canvas{position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:9998}
+@keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
 </style>
 </head>
 <body>
 <nav class="nav"><div class="nav-logo">TRENCH<span>_PROTOCOL</span></div><div class="nav-right"><a href="/" class="nav-link">Home</a><a href="https://axiom.trade/@stygian" target="_blank" rel="noopener" class="nav-cta">Trade on Axiom &#8594;</a></div></nav>
 
 <section class="course-hero">
-<div class="hero-tag">Free Course</div>
-<h1>The Complete<br><span class="accent">Memecoin</span> Trading Course</h1>
-<p>Go from zero to your first Solana meme coin trade in under 40 minutes. 8 modules. Interactive quizzes. Completely free. No signup required.</p>
+<div class="hero-tag">// start learning</div>
+<h1>Learn the<br><span class="accent">Trenches</span></h1>
+<p>The free meme coin trading course. 8 modules, interactive quizzes, no signup required. Go from zero to your first trade in under 40 minutes.</p>
 <div class="progress-wrap">
 <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
 <div class="progress-text" id="progressText">0 / 8 completed</div>
@@ -248,15 +257,15 @@ html,body{overflow-x:hidden;max-width:100vw}
 </div>
 <div class="mod-body"><div class="mod-content">
 <div class="lesson"><div class="lesson-tag">Lesson 4.1</div><h4>Why Axiom?</h4>
-<p>Axiom is the fastest and most complete Solana trading tool. Y Combinator backed, $10B+ volume. What makes it different: <span class="hl">sub-400ms execution</span>, <span class="hl">built-in MEV protection</span>, <span class="hl">whale tracking</span>, and everything in one screen.</p></div>
+<p>Axiom is the fastest and most complete Solana trading tool. Y Combinator backed. What makes it different: <span class="hl">sub-400ms execution</span>, <span class="hl">built-in MEV protection</span>, <span class="hl">whale tracking</span>, and everything in one screen.</p></div>
 
 <div class="lesson"><div class="lesson-tag">Lesson 4.2</div><h4>Create account and fund wallet</h4>
-<p>Go to <a href="https://axiom.trade/@stygian" target="_blank" rel="noopener" style="color:var(--green);text-decoration:underline">axiom.trade/@stygian</a> to save 10% on all trading fees. Sign up with email or connect your wallet. Connect Phantom or create an embedded wallet. Fund it by sending SOL from an exchange or using the built-in card on-ramp.</p>
+<p>Go to <a href="https://axiom.trade/@stygian" target="_blank" rel="noopener" style="color:var(--green);text-decoration:underline">axiom.trade/@stygian</a> to save 10% on all trading fees. Sign up with email or connect your Phantom wallet. Fund it by sending SOL from an exchange or using the built-in card on-ramp.</p>
 <div class="tip-box"><div class="tip-label">Start small</div><p>$50-100 is plenty to learn with. The goal right now is education, not profit. You can add more once you have the basics down.</p></div></div>
 
 <div class="lesson"><div class="lesson-tag">Lesson 4.3</div><h4>Explore the dashboard</h4>
 <p>Once you're logged in, take a few minutes to click around and get familiar with the layout. Don't worry about understanding everything yet, we cover each section in later modules.</p>
-<div class="tip-box"><div class="tip-label">Good to know</div><p>Axiom has built-in MEV protection, which means bots cannot front-run your trades. This works automatically in the background. You don't need to enable anything.</p></div></div>
+<div class="tip-box"><div class="tip-label">Good to know</div><p>Axiom has built-in MEV protection. Make sure it's turned on in your settings so bots can't front-run your trades.</p></div></div>
 
 <div class="lesson"><div class="lesson-tag">Lesson 4.4</div><h4>The Axiom dashboard</h4>
 <p><span class="hl">Pulse</span> — New token launches in real time. Your scouting tool.</p>
@@ -265,13 +274,6 @@ html,body{overflow-x:hidden;max-width:100vw}
 <p><span class="hl">Portfolio</span> — Your holdings, PnL, and transaction history.</p></div>
 <button class="complete-btn" onclick="completeModule(4)">Mark Module Complete</button>
 </div></div></div>
-
-<div class="mid-cta">
-<h3>Account Set Up? Let's Keep Going.</h3>
-<p>If you haven't created your Axiom account yet, do it now before moving to the trading modules.</p>
-<a href="https://axiom.trade/@stygian" target="_blank" rel="noopener" class="cta-btn">Trade on Axiom &#8594; Save 10% on Fees</a>
-<span class="cta-sub">Free | No KYC | Takes 2 minutes</span>
-</div>
 
 
 <div class="module" data-module="5">
@@ -392,6 +394,19 @@ html,body{overflow-x:hidden;max-width:100vw}
 
 </section>
 
+<div class="completion-banner" id="completionBanner">
+<div style="font-size:48px;margin-bottom:16px">&#127942;</div>
+<h3 style="font-size:28px;margin-bottom:12px">You Made It</h3>
+<p style="font-size:15px;color:var(--text);max-width:500px;margin:0 auto 24px">8 modules done. You now know more about meme coin trading than 95% of people who lose money in the trenches.</p>
+<div style="display:flex;flex-wrap:wrap;gap:12px;justify-content:center;margin-bottom:24px">
+<div style="font-family:var(--font-mono);font-size:10px;color:var(--green);background:rgba(0,255,65,0.06);border:1px solid rgba(0,255,65,0.15);padding:8px 14px;border-radius:4px">Scam detection</div>
+<div style="font-family:var(--font-mono);font-size:10px;color:var(--green);background:rgba(0,255,65,0.06);border:1px solid rgba(0,255,65,0.15);padding:8px 14px;border-radius:4px">Entry &amp; exit strategy</div>
+<div style="font-family:var(--font-mono);font-size:10px;color:var(--green);background:rgba(0,255,65,0.06);border:1px solid rgba(0,255,65,0.15);padding:8px 14px;border-radius:4px">Chart reading</div>
+<div style="font-family:var(--font-mono);font-size:10px;color:var(--green);background:rgba(0,255,65,0.06);border:1px solid rgba(0,255,65,0.15);padding:8px 14px;border-radius:4px">Whale tracking</div>
+<div style="font-family:var(--font-mono);font-size:10px;color:var(--green);background:rgba(0,255,65,0.06);border:1px solid rgba(0,255,65,0.15);padding:8px 14px;border-radius:4px">Risk management</div>
+</div>
+<p style="font-family:var(--font-mono);font-size:11px;color:var(--text-dim)">Now go trade. Start small. Follow your rules.</p>
+</div>
 <div class="mid-cta" style="border-bottom:none">
 <h3>Course Complete. Time to Trade.</h3>
 <p>You've got the knowledge. Start small, stay disciplined, and join the community.</p>
@@ -400,16 +415,112 @@ html,body{overflow-x:hidden;max-width:100vw}
 <a href="https://discord.gg/RzD4Jqf83z" target="_blank" rel="noopener" class="cta-btn" style="background:transparent;border:1px solid var(--green);color:var(--green);margin-top:8px;padding:12px 32px;font-size:11px">Join the Free Discord &#8594;</a>
 </div>
 
+<div class="disclaimer" style="padding:40px 24px;text-align:center;border-top:1px solid var(--border)"><p style="font-size:10px;color:#2a2a30;max-width:600px;margin:0 auto;line-height:1.7">Trading meme coins is extremely high risk. You can and likely will lose money. Nothing on this page is financial advice. Only trade with funds you can afford to lose completely. Past results do not guarantee future performance. This page contains a referral link. DYOR.</p></div>
 <footer class="footer"><p style="margin-bottom:10px;">TRENCH_PROTOCOL &#169; 2025 &#8212; Built for the trenches.</p><div class="footer-links"><a href="/">Home</a><a href="https://x.com/stygianbroker" target="_blank" rel="noopener">&#120143; @stygianbroker</a><a href="https://discord.gg/RzD4Jqf83z" target="_blank" rel="noopener">Discord</a><a href="https://axiom.trade/@stygian" target="_blank" rel="noopener">Axiom</a></div></footer>
 
 <script>
 const saved=localStorage.getItem('tp_progress');const state={completed:new Set(saved?JSON.parse(saved):[]),open:null};
-state.completed.forEach(n=>{const m=document.querySelector('[data-module="'+n+'"]');if(m){m.classList.add('completed');m.querySelector('.mod-status').textContent='Done';const b=m.querySelector('.complete-btn');if(b){b.textContent='Completed \u2713';b.classList.add('done')}}});updateProgress();
-function toggleModule(n){const m=document.querySelector('[data-module="'+n+'"]');if(state.open===n){m.classList.remove('open');state.open=null}else{if(state.open)document.querySelector('[data-module="'+state.open+'"]').classList.remove('open');m.classList.add('open');state.open=n;setTimeout(()=>m.scrollIntoView({behavior:'smooth',block:'nearest'}),100)}}
-function completeModule(n){var m=document.querySelector('[data-module="'+n+'"]');var quizzes=m.querySelectorAll('.quiz');var allPassed=true;for(var q=0;q<quizzes.length;q++){var res=quizzes[q].querySelector('.quiz-result');if(!res||!res.classList.contains('show')||!res.classList.contains('pass')){allPassed=false;break}}if(quizzes.length>0&&!allPassed){var warn=m.querySelector('.quiz-warn');if(!warn){warn=document.createElement('div');warn.className='quiz-warn';warn.style.cssText='font-family:var(--font-mono);font-size:11px;color:var(--amber);margin-top:12px;padding:10px 14px;background:rgba(255,184,0,0.06);border-radius:6px;border:1px solid rgba(255,184,0,0.15)';warn.textContent='Answer all quizzes correctly to complete this module.';m.querySelector('.complete-btn').after(warn)}return}state.completed.add(n);localStorage.setItem('tp_progress',JSON.stringify([...state.completed]));m.classList.add('completed');m.querySelector('.mod-status').textContent='Done';var b=m.querySelector('.complete-btn');b.textContent='Completed \u2713';b.classList.add('done');var w=m.querySelector('.quiz-warn');if(w)w.remove();updateProgress();setTimeout(function(){var rect=m.getBoundingClientRect();var targetY=rect.top+window.scrollY;m.classList.remove('open');state.open=null;window.scrollTo({top:targetY-100,behavior:'instant'})},600)}
-function updateProgress(){const c=state.completed.size;document.getElementById('progressFill').style.width=(c/8*100)+'%';document.getElementById('progressText').textContent=c+' / 8 completed'}
-function checkQuiz(btn){const q=btn.closest('.quiz'),opts=q.querySelectorAll('.quiz-opt'),res=q.querySelector('.quiz-result'),ok=btn.dataset.correct==='true';opts.forEach(o=>{o.classList.add('disabled');if(o.dataset.correct==='true')o.classList.add('correct')});if(!ok){btn.classList.add('wrong');res.textContent='Not quite. Correct answer highlighted in green.';res.className='quiz-result show fail'}else{res.textContent='Correct!';res.className='quiz-result show pass';var w=btn.closest('.mod-content').querySelector('.quiz-warn');if(w)w.remove()}}
+
+function lockModules(){
+document.querySelectorAll('.module').forEach(function(m){
+var n=parseInt(m.dataset.module);
+if(n===1||state.completed.has(n-1)||state.completed.has(n)){
+m.classList.remove('locked');
+var st2=m.querySelector('.mod-status');if(st2&&st2.textContent==='Locked')st2.textContent='Start';
+}else{
+m.classList.add('locked');
+m.classList.remove('open');
+var st=m.querySelector('.mod-status');if(st&&st.textContent!=='Done')st.textContent='Locked';
+}
+});
+}
+
+state.completed.forEach(function(n){
+var m=document.querySelector('[data-module="'+n+'"]');
+if(m){m.classList.add('completed');m.querySelector('.mod-status').textContent='Done';
+var b=m.querySelector('.complete-btn');if(b){b.textContent='Completed \u2713';b.classList.add('done')}}
+});
+updateProgress();
+lockModules();
+
+function toggleModule(n){
+var m=document.querySelector('[data-module="'+n+'"]');
+if(m.classList.contains('locked'))return;
+if(state.open===n){m.classList.remove('open');state.open=null}
+else{if(state.open)document.querySelector('[data-module="'+state.open+'"]').classList.remove('open');
+m.classList.add('open');state.open=n;
+setTimeout(function(){m.scrollIntoView({behavior:'smooth',block:'nearest'})},100)}}
+
+function completeModule(n){
+var m=document.querySelector('[data-module="'+n+'"]');
+var quizzes=m.querySelectorAll('.quiz');var allPassed=true;
+for(var q=0;q<quizzes.length;q++){var res=quizzes[q].querySelector('.quiz-result');
+if(!res||!res.classList.contains('show')||!res.classList.contains('pass')){allPassed=false;break}}
+if(quizzes.length>0&&!allPassed){var warn=m.querySelector('.quiz-warn');
+if(!warn){warn=document.createElement('div');warn.className='quiz-warn';
+warn.style.cssText='font-family:var(--font-mono);font-size:11px;color:var(--amber);margin-top:12px;padding:10px 14px;background:rgba(255,184,0,0.06);border-radius:6px;border:1px solid rgba(255,184,0,0.15)';
+warn.textContent='Answer all quizzes correctly to complete this module.';
+m.querySelector('.complete-btn').after(warn)}return}
+state.completed.add(n);if(n===8)state.justCompleted=true;localStorage.setItem('tp_progress',JSON.stringify([...state.completed]));
+m.classList.add('completed');m.querySelector('.mod-status').textContent='Done';
+var b=m.querySelector('.complete-btn');b.textContent='Completed \u2713';b.classList.add('done');
+var w=m.querySelector('.quiz-warn');if(w)w.remove();
+updateProgress();lockModules();
+setTimeout(function(){var rect=m.getBoundingClientRect();var targetY=rect.top+window.scrollY;
+m.classList.remove('open');state.open=null;
+window.scrollTo({top:targetY-100,behavior:'instant'})},600)}
+
+function updateProgress(){var c=state.completed.size;
+document.getElementById('progressFill').style.width=(c/8*100)+'%';
+document.getElementById('progressText').textContent=c+' / 8 completed';
+if(c===8){document.getElementById('progressText').textContent='Course Complete!';document.getElementById('completionBanner').classList.add('show');document.getElementById('progressFill').classList.add('complete');if(state.justCompleted){celebrate();state.justCompleted=false;}}}
+
+function checkQuiz(btn){var q=btn.closest('.quiz'),opts=q.querySelectorAll('.quiz-opt'),
+res=q.querySelector('.quiz-result'),ok=btn.dataset.correct==='true';
+if(!ok){btn.classList.add('wrong');btn.classList.add('disabled');btn.style.pointerEvents='none';
+res.textContent='Not quite. Try again.';res.className='quiz-result show fail'}
+else{opts.forEach(function(o){o.classList.add('disabled');o.style.pointerEvents='none'});
+btn.classList.add('correct');res.textContent='Correct!';res.className='quiz-result show pass';
+var w=btn.closest('.mod-content').querySelector('.quiz-warn');if(w)w.remove()}}
+
 function toggleCheck(b){b.classList.toggle('checked')}
+
+function celebrate(){
+document.getElementById('completionBanner').classList.add('show');
+document.getElementById('progressFill').classList.add('complete');
+var canvas=document.createElement('canvas');
+canvas.className='confetti-canvas';
+document.body.appendChild(canvas);
+var ctx=canvas.getContext('2d');
+canvas.width=window.innerWidth;canvas.height=window.innerHeight;
+var particles=[];
+var colors=['#00ff41','#00cc33','#00e5ff','#ffb800','#ffffff'];
+for(var i=0;i<120;i++){
+particles.push({x:Math.random()*canvas.width,y:-20-Math.random()*200,
+vx:(Math.random()-0.5)*4,vy:2+Math.random()*4,
+size:3+Math.random()*5,color:colors[Math.floor(Math.random()*colors.length)],
+rotation:Math.random()*360,rotSpeed:(Math.random()-0.5)*8,
+opacity:1});}
+var frame=0;
+function draw(){
+ctx.clearRect(0,0,canvas.width,canvas.height);
+var alive=false;
+particles.forEach(function(p){
+p.x+=p.vx;p.y+=p.vy;p.vy+=0.08;p.rotation+=p.rotSpeed;
+if(frame>60)p.opacity-=0.01;
+if(p.opacity>0&&p.y<canvas.height+20){alive=true;
+ctx.save();ctx.translate(p.x,p.y);ctx.rotate(p.rotation*Math.PI/180);
+ctx.globalAlpha=Math.max(0,p.opacity);ctx.fillStyle=p.color;
+ctx.fillRect(-p.size/2,-p.size/2,p.size,p.size);ctx.restore();}});
+frame++;
+if(alive&&frame<180)requestAnimationFrame(draw);
+else{canvas.remove();}
+}
+draw();
+setTimeout(function(){
+document.getElementById('completionBanner').scrollIntoView({behavior:'smooth',block:'center'});
+},800);
+}
 
 </script>
 </body>

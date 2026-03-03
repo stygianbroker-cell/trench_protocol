@@ -407,9 +407,7 @@ html,body{overflow-x:hidden;max-width:100vw}
 </div>
 <p style="font-family:var(--font-mono);font-size:11px;color:var(--text-dim)">Now go trade. Start small. Follow your rules.</p>
 </div>
-<div class="mid-cta" style="border-bottom:none">
-<h3>Course Complete. Time to Trade.</h3>
-<p>You've got the knowledge. Start small, stay disciplined, and join the community.</p>
+<div class="mid-cta" style="border-bottom:none;padding-top:32px">
 <a href="https://axiom.trade/@stygian" target="_blank" rel="noopener" class="cta-btn">Trade on Axiom &#8594; Save 10% on Fees</a>
 <span class="cta-sub">Free to use &#183; No KYC &#183; Non-custodial &#183; Your keys, your coins</span>
 <a href="https://discord.gg/RzD4Jqf83z" target="_blank" rel="noopener" class="cta-btn" style="background:transparent;border:1px solid var(--green);color:var(--green);margin-top:8px;padding:12px 32px;font-size:11px">Join the Free Discord &#8594;</a>
@@ -466,9 +464,9 @@ m.classList.add('completed');m.querySelector('.mod-status').textContent='Done';
 var b=m.querySelector('.complete-btn');b.textContent='Completed \u2713';b.classList.add('done');
 var w=m.querySelector('.quiz-warn');if(w)w.remove();
 updateProgress();lockModules();
-setTimeout(function(){var rect=m.getBoundingClientRect();var targetY=rect.top+window.scrollY;
-m.classList.remove('open');state.open=null;
-window.scrollTo({top:targetY-100,behavior:'instant'})},600)}
+setTimeout(function(){m.classList.remove('open');state.open=null;
+if(n!==8){var rect=m.getBoundingClientRect();var targetY=rect.top+window.scrollY;
+window.scrollTo({top:targetY-100,behavior:'instant'})}},600)}
 
 function updateProgress(){var c=state.completed.size;
 document.getElementById('progressFill').style.width=(c/8*100)+'%';
@@ -518,8 +516,8 @@ else{canvas.remove();}
 }
 draw();
 setTimeout(function(){
-document.getElementById('completionBanner').scrollIntoView({behavior:'smooth',block:'center'});
-},800);
+document.getElementById('completionBanner').scrollIntoView({behavior:'smooth',block:'start'});
+},900);
 }
 
 </script>
